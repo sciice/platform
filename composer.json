@@ -29,7 +29,10 @@
     "autoload": {
         "psr-4": {
             "Platform\\": "src/"
-        }
+        },
+        "classmap": [
+            "database/seeds"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

@@ -9,6 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use Platform\Middleware\RefreshAccessToken;
 use Illuminate\Auth\Middleware\Authenticate;
 use Platform\Console\PlatformInstallConsole;
+use Platform\Model\Platform;
 
 class SciiceServiceProvider extends ServiceProvider
 {

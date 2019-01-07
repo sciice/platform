@@ -13,6 +13,11 @@ class Authorize
 
     public function handle(Request $request, \Closure $next, $guard = 'admin')
     {
+        if (auth($guard)->user()->hasRole(1))
+        {
+            return $next($request);
+        }
+
         $method = str_after(Route::currentRouteAction(), '@');
         $name = Route::currentRouteName();
 
