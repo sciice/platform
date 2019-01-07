@@ -2,6 +2,7 @@
 
 namespace Platform\Providers;
 
+use Platform\Model\Platform;
 use Platform\Foundation\Sciice;
 use Platform\Middleware\Authorize;
 use Illuminate\Support\Facades\Route;
