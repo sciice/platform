@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Controller;
 
 use Illuminate\Http\Request;
@@ -14,7 +18,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin')->except('login');
+        $this->middleware('login:admin')->except('login');
     }
 
     /**
@@ -28,7 +32,7 @@ class LoginController extends Controller
             'message' => __('登录成功'),
             'access_token' => $this->accessToken,
             'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60
+            'expires_in' => $this->guard()->factory()->getTTL() * 60,
         ]);
     }
 

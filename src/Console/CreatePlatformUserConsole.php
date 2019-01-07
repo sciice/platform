@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Console;
 
 use Illuminate\Console\Command;
@@ -21,6 +25,6 @@ class CreatePlatformUserConsole extends Command
      */
     public function handle()
     {
-
+        //
     }
 }

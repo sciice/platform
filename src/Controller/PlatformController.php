@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Controller;
 
 use Illuminate\Http\Request;
@@ -17,6 +21,7 @@ class PlatformController extends Controller
 
     /**
      * PlatformController constructor.
+     *
      * @param PlatformService $service
      */
     public function __construct(PlatformService $service)
@@ -26,6 +31,7 @@ class PlatformController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return mixed
      */
     public function store(Request $request)
@@ -36,6 +42,7 @@ class PlatformController extends Controller
     /**
      * @param Request $request
      * @param int $id
+     *
      * @return mixed
      */
     public function update(Request $request, int $id)

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Tests;
 
 use Platform\Model\Platform;
@@ -12,8 +16,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->withFactories(__DIR__ . '/factories');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->withFactories(__DIR__.'/factories');
+        $this->withHeader('X-Requested-With', 'XMLHttpRequest');
     }
 
     /**

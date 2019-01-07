@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Foundation;
 
 use BadMethodCallException;
@@ -25,7 +29,7 @@ class Sciice
     }
 
     /**
-     * 注册菜单
+     * 注册菜单.
      *
      * @param array $menuBar
      * @return Sciice

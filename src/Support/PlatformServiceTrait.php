@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Support;
 
 use Illuminate\Http\Request;
@@ -16,6 +20,7 @@ trait PlatformServiceTrait
 
     /**
      * @param int $id
+     *
      * @return mixed
      */
     public function show(int $id)
@@ -25,6 +30,7 @@ trait PlatformServiceTrait
 
     /**
      * @param int $id
+     *
      * @return mixed
      * @throws \Exception
      */
@@ -35,6 +41,7 @@ trait PlatformServiceTrait
 
     /**
      * @param Request $request
+     *
      * @return mixed
      */
     abstract public function store(Request $request);
@@ -42,6 +49,7 @@ trait PlatformServiceTrait
     /**
      * @param Request $request
      * @param int $id
+     *
      * @return mixed
      */
     abstract public function update(Request $request, int $id);

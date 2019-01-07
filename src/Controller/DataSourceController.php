@@ -1,16 +1,20 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Controller;
 
 class DataSourceController extends Controller
 {
     public function __construct()
     {
-
+        //
     }
 
     public function __invoke()
     {
-
+        //
     }
 }

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Console;
 
 use Illuminate\Console\Command;
@@ -23,7 +27,7 @@ class PlatformInstallConsole extends Command
     {
         $this->comment('Publishing Platform Resources...');
         $this->callSilent('vendor:publish', [
-            '--tag'   => 'admin-config',
+            '--tag' => 'admin-config',
             '--force' => true,
         ]);
 

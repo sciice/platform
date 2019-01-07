@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Events;
 
 use Illuminate\Queue\SerializesModels;
@@ -25,6 +29,7 @@ class Login
 
     /**
      * Login constructor.
+     *
      * @param string $guard
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
      * @param string $accessToken

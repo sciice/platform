@@ -1,11 +1,15 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Service;
 
 use Illuminate\Http\Request;
-use Platform\Contracts\PlatformService as Service;
 use Platform\Model\Platform;
 use Platform\Resources\PlatformResource;
+use Platform\Contracts\PlatformService as Service;
 
 class PlatformService implements Service
 {
@@ -21,6 +25,7 @@ class PlatformService implements Service
 
     /**
      * PlatformService constructor.
+     *
      * @param Platform|\Illuminate\Database\Eloquent\Builder $model
      */
     public function __construct(Platform $model)
@@ -46,6 +51,7 @@ class PlatformService implements Service
 
     /**
      * @param int $id
+     *
      * @return mixed
      */
     public function resource(int $id)
@@ -55,6 +61,7 @@ class PlatformService implements Service
 
     /**
      * @param Request $request
+     *
      * @return $this
      */
     public function storeAs(Request $request)
@@ -67,6 +74,7 @@ class PlatformService implements Service
     /**
      * @param Request $request
      * @param int $id
+     *
      * @return $this
      */
     public function updateAs(Request $request, int $id)
@@ -82,6 +90,7 @@ class PlatformService implements Service
 
     /**
      * @param int $id
+     *
      * @return $this
      * @throws \Exception
      */
