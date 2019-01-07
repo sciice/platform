@@ -2,11 +2,13 @@
 
 namespace Platform\Providers;
 
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Platform\Console\PlatformInstallConsole;
 use Platform\Foundation\Sciice;
 use Platform\Middleware\Authorize;
+use Platform\Middleware\RefreshAccessToken;
 
 class SciiceServiceProvider extends ServiceProvider
 {
@@ -139,6 +141,7 @@ class SciiceServiceProvider extends ServiceProvider
      */
     private function registeredMiddleware()
     {
+        $this->app['router']->aliasMiddleware('login', Authenticate::class);
         $this->app['router']->aliasMiddleware('authorize', Authorize::class);
         $this->app['router']->aliasMiddleware('refresh', RefreshAccessToken::class);
     }

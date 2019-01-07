@@ -104,6 +104,8 @@ class LoginControllerTest extends TestCase
 
         $response = $this->postJson($this->logout);
 
+        dump($response);
+
         $response->assertStatus(401);
     }
 
