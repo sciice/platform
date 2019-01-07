@@ -18,12 +18,14 @@ interface PlatformService
 
     /**
      * @param int $id
+     *
      * @return mixed
      */
     public function resource(int $id);
 
     /**
      * @param Request $request
+     *
      * @return $this
      */
     public function storeAs(Request $request);
@@ -31,12 +33,14 @@ interface PlatformService
     /**
      * @param Request $request
      * @param int $id
+     *
      * @return $this
      */
     public function updateAs(Request $request, int $id);
 
     /**
      * @param int $id
+     *
      * @return $this
      * @throws \Exception
      */

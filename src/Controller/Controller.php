@@ -12,7 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * 下发JSON数据
+     * 下发JSON数据.
      *
      * @param string $message
      * @param int $code

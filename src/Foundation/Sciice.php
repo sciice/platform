@@ -25,7 +25,7 @@ class Sciice
     }
 
     /**
-     * 注册菜单
+     * 注册菜单.
      *
      * @param array $menuBar
      * @return Sciice

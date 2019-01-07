@@ -2,10 +2,10 @@
 
 namespace Platform\Service;
 
-use Illuminate\Http\Request;
-use Platform\Contracts\PlatformService;
 use Platform\Model\Role;
+use Illuminate\Http\Request;
 use Platform\Resources\RoleResource;
+use Platform\Contracts\PlatformService;
 
 class RoleService implements PlatformService
 {
@@ -21,6 +21,7 @@ class RoleService implements PlatformService
 
     /**
      * RoleService constructor.
+     *
      * @param Role|\Illuminate\Database\Eloquent\Builder $model
      */
     public function __construct(Role $model)
@@ -46,6 +47,7 @@ class RoleService implements PlatformService
 
     /**
      * @param int $id
+     *
      * @return mixed
      */
     public function resource(int $id)
@@ -58,6 +60,7 @@ class RoleService implements PlatformService
 
     /**
      * @param Request $request
+     *
      * @return $this
      */
     public function storeAs(Request $request)
@@ -71,6 +74,7 @@ class RoleService implements PlatformService
     /**
      * @param Request $request
      * @param int $id
+     *
      * @return $this
      */
     public function updateAs(Request $request, int $id)
@@ -87,6 +91,7 @@ class RoleService implements PlatformService
 
     /**
      * @param int $id
+     *
      * @return $this
      * @throws \Exception
      */

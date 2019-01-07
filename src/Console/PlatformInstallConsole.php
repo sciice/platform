@@ -23,7 +23,7 @@ class PlatformInstallConsole extends Command
     {
         $this->comment('Publishing Platform Resources...');
         $this->callSilent('vendor:publish', [
-            '--tag'   => 'admin-config',
+            '--tag' => 'admin-config',
             '--force' => true,
         ]);
 

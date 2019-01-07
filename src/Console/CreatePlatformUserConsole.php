@@ -21,6 +21,6 @@ class CreatePlatformUserConsole extends Command
      */
     public function handle()
     {
-
+        //
     }
 }

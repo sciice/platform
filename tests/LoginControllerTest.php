@@ -53,7 +53,7 @@ class LoginControllerTest extends TestCase
 
         $response = $this->postJson($this->login, [
             'username' => '13030303030',
-            'password' => 'admin'
+            'password' => 'admin',
         ]);
 
         $response->assertStatus(200);
@@ -68,7 +68,7 @@ class LoginControllerTest extends TestCase
 
         $response = $this->postJson($this->login, [
             'username' => 'admin',
-            'password' => '1234566'
+            'password' => '1234566',
         ]);
 
         $response->assertStatus(422);
@@ -87,7 +87,7 @@ class LoginControllerTest extends TestCase
         for ($i = 0; $i <= 6; $i++) {
             $response = $this->postJson($this->login, [
                 'username' => 'admin',
-                'password' => '123456'
+                'password' => '123456',
             ]);
         }
 
@@ -116,11 +116,11 @@ class LoginControllerTest extends TestCase
 
         $data = $this->postJson($this->login, [
             'username' => '13030303030',
-            'password' => 'admin'
+            'password' => 'admin',
         ]);
 
         $response = $this->postJson($this->logout, [], [
-            'Authorization' => $data->original['token_type'].' '.$data->original['access_token']
+            'Authorization' => $data->original['token_type'].' '.$data->original['access_token'],
         ]);
 
         $response->assertStatus(200);

@@ -49,7 +49,7 @@ class ValidationServiceProvider extends ServiceProvider
             [
                 'name' => 'mobile',
                 'class' => new Mobile(),
-            ]
+            ],
         ];
     }
 }

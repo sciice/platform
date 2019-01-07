@@ -7,4 +7,3 @@ Route::get('source', 'DataSourceController');
 
 Route::post('login', 'LoginController@login')->name('login');
 Route::post('logout', 'LoginCOntroller@logout')->name('logout');
-

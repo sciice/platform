@@ -12,6 +12,7 @@ class Mobile implements Rule
      *
      * @param  string $attribute
      * @param  mixed $value
+     *
      * @return bool
      */
     public function passes($attribute, $value)
@@ -19,7 +20,7 @@ class Mobile implements Rule
         if (strlen($value) !== 11) {
             return false;
         }
-        if (!is_numeric($value)) {
+        if (! is_numeric($value)) {
             return false;
         }
 

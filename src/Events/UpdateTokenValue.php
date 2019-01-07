@@ -20,6 +20,7 @@ class UpdateTokenValue
 
     /**
      * UpdateTokenValue constructor.
+     *
      * @param string $accessToken
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
      *
