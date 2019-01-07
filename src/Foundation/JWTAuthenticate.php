@@ -2,12 +2,12 @@
 
 namespace Platform\Foundation;
 
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Platform\Events\Login;
+use Platform\Events\Logout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-use Platform\Events\Login;
-use Platform\Events\Logout;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 trait JWTAuthenticate
 {
@@ -94,7 +94,7 @@ trait JWTAuthenticate
         return collect(config('admin.attempt'))->contains(function ($value) use ($request) {
             return $this->accessToken = $this->guard()->attempt([
                 $value => $request->input($this->username()),
-                'password' => $request->input('password')
+                'password' => $request->input('password'),
             ]);
         });
     }

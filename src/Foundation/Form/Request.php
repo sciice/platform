@@ -37,7 +37,7 @@ class Request extends FormRequest
             $this->withValidator($validator);
         }
 
-        if (!$this->isMethod('POST') && method_exists($this, 'updateWithValidator')) {
+        if (! $this->isMethod('POST') && method_exists($this, 'updateWithValidator')) {
             $this->updateWithValidator($validator);
         }
 

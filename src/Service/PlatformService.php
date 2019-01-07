@@ -3,9 +3,9 @@
 namespace Platform\Service;
 
 use Illuminate\Http\Request;
-use Platform\Contracts\PlatformService as Service;
 use Platform\Model\Platform;
 use Platform\Resources\PlatformResource;
+use Platform\Contracts\PlatformService as Service;
 
 class PlatformService implements Service
 {

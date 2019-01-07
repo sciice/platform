@@ -2,11 +2,11 @@
 
 namespace Platform\Providers;
 
+use Platform\Foundation\Sciice;
+use Platform\Middleware\Authorize;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Platform\Console\PlatformInstallConsole;
-use Platform\Foundation\Sciice;
-use Platform\Middleware\Authorize;
 
 class SciiceServiceProvider extends ServiceProvider
 {
@@ -40,7 +40,7 @@ class SciiceServiceProvider extends ServiceProvider
         $this->registeredMiddleware();
 
         $this->commands([
-            PlatformInstallConsole::class
+            PlatformInstallConsole::class,
         ]);
     }
 
@@ -51,14 +51,14 @@ class SciiceServiceProvider extends ServiceProvider
      */
     private function registeredResources()
     {
-        if (!$this->app->configurationIsCached()) {
-            $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'admin');
-            Sciice::mergeConfigFrom(__DIR__ . '/../../config/auth.php', 'auth');
+        if (! $this->app->configurationIsCached()) {
+            $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'admin');
+            Sciice::mergeConfigFrom(__DIR__.'/../../config/auth.php', 'auth');
         }
 
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'admin');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'admin');
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/admin'));
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 
         $this->registeredRoute();
     }
@@ -70,7 +70,7 @@ class SciiceServiceProvider extends ServiceProvider
      */
     private function registeredServiceMenu()
     {
-        Sciice::registeredMenuBar(require __DIR__ . '/../../config/menu.php');
+        Sciice::registeredMenuBar(require __DIR__.'/../../config/menu.php');
     }
 
     /**
@@ -81,7 +81,7 @@ class SciiceServiceProvider extends ServiceProvider
     private function registeredRoute()
     {
         Route::group($this->configurationRouter(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
+            $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
         });
     }
 
@@ -108,15 +108,15 @@ class SciiceServiceProvider extends ServiceProvider
     private function registeredPublish()
     {
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('admin.php')
+            __DIR__.'/../../config/config.php' => config_path('admin.php'),
         ], 'admin-config');
 
         $this->publishes([
-            __DIR__ . '/../../resources/lang' => resource_path('lang/vendor/admin'),
+            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/admin'),
         ], 'admin-lang');
 
         $this->publishes([
-            __DIR__ . '/../../database/migrations' => database_path('migrations'),
+            __DIR__.'/../../database/migrations' => database_path('migrations'),
         ], 'admin-migrations');
     }
 

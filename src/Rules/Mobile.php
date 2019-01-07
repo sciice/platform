@@ -6,7 +6,6 @@ use Illuminate\Contracts\Validation\Rule;
 
 class Mobile implements Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *
@@ -19,7 +18,7 @@ class Mobile implements Rule
         if (strlen($value) !== 11) {
             return false;
         }
-        if (!is_numeric($value)) {
+        if (! is_numeric($value)) {
             return false;
         }
 

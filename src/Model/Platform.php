@@ -2,12 +2,12 @@
 
 namespace Platform\Model;
 
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 use QCod\ImageUp\HasImageUploads;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
 
 class Platform extends User implements JWTSubject
 {
