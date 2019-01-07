@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Rules;
 
 use Illuminate\Contracts\Validation\Rule;

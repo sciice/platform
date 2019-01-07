@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Events;
 
 use Illuminate\Queue\SerializesModels;

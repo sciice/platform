@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Foundation\Form;
 
 use Illuminate\Contracts\Validation\Validator;
