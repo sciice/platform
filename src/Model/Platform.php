@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Model;
 
 use QCod\ImageUp\HasImageUploads;

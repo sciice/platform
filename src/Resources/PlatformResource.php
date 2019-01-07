@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;

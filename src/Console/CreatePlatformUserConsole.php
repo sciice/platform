@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 namespace Platform\Console;
 
 use Illuminate\Console\Command;

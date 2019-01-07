@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 use Illuminate\Support\Collection;
 
 /*

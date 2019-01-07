@@ -1,9 +1,5 @@
 <?php
 
-/*
- * style: fix StyleCI.
- */
-
 use Illuminate\Support\Collection;
 
 Collection::macro('filterMenu', function ($authorize, $field = 'authorize', $children = 'children') {
