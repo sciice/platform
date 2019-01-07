@@ -2,6 +2,7 @@
 
 namespace Platform\Providers;
 
+use Platform\Model\Platform;
 use Platform\Foundation\Sciice;
 use Platform\Middleware\Authorize;
 use Illuminate\Support\Facades\Route;
@@ -9,7 +10,6 @@ use Illuminate\Support\ServiceProvider;
 use Platform\Middleware\RefreshAccessToken;
 use Illuminate\Auth\Middleware\Authenticate;
 use Platform\Console\PlatformInstallConsole;
-use Platform\Model\Platform;
 
 class SciiceServiceProvider extends ServiceProvider
 {
