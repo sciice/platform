@@ -1,0 +1,57 @@
+{
+    "name": "sciice/platform",
+    "type": "library",
+    "description": "Platform",
+    "keywords": [
+        "laravel",
+        "sciice",
+        "platform"
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "laravel/framework": "^5.7",
+        "qcod/laravel-imageup": "^1.0",
+        "spatie/laravel-permission": "^2.29",
+        "tymon/jwt-auth": "dev-develop"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2",
+        "orchestra/testbench": "^3.7",
+        "phpunit/phpunit": "^7.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben",
+            "email": "sciice@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Platform\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Platform\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Platform\\Providers\\SciiceServiceProvider"
+            ],
+            "aliases": {
+                "Sciice": "Platform\\Facades\\Sciice"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
