@@ -11,7 +11,7 @@ return [
     'providers' => [
         'admin' => [
             'driver' => 'eloquent',
-            'model' => \Platform\Model\Platform::class
+            'model' => \Platform\Model\Platform::class,
         ],
     ],
 ];

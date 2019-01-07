@@ -53,14 +53,14 @@ class LoginControllerTest extends TestCase
 
         $response = $this->postJson($this->login, [
             'username' => '13030303030',
-            'password' => 'admin'
+            'password' => 'admin',
         ]);
 
         $response->assertStatus(200);
     }
 
     /**
-     * 数据不匹配，登录失败
+     * 数据不匹配，登录失败.
      */
     public function test_login_it_failed()
     {
@@ -68,7 +68,7 @@ class LoginControllerTest extends TestCase
 
         $response = $this->postJson($this->login, [
             'username' => 'admin',
-            'password' => '1234566'
+            'password' => '1234566',
         ]);
 
         $response->assertStatus(422);
@@ -76,7 +76,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 登录失败次数超过设定
+     * 登录失败次数超过设定.
      */
     public function test_login_it_throttle()
     {
@@ -87,7 +87,7 @@ class LoginControllerTest extends TestCase
         for ($i = 0; $i <= 6; $i++) {
             $response = $this->postJson($this->login, [
                 'username' => 'admin',
-                'password' => '123456'
+                'password' => '123456',
             ]);
         }
 
@@ -96,7 +96,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 未登录
+     * 未登录.
      */
     public function test_logout_it_unauthorized()
     {
@@ -116,11 +116,11 @@ class LoginControllerTest extends TestCase
 
         $data = $this->postJson($this->login, [
             'username' => '13030303030',
-            'password' => 'admin'
+            'password' => 'admin',
         ]);
 
         $response = $this->postJson($this->logout, [], [
-            'Authorization' => $data->original['token_type'].' '.$data->original['access_token']
+            'Authorization' => $data->original['token_type'].' '.$data->original['access_token'],
         ]);
 
         $response->assertStatus(200);

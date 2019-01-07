@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 class Authorize
 {
     private $abilities = [
-        'show' => 'update'
+        'show' => 'update',
     ];
 
     public function handle(Request $request, \Closure $next, $guard = 'admin')
@@ -17,7 +17,7 @@ class Authorize
         $name = Route::currentRouteName();
 
         if (array_get($this->abilities, $method)) {
-            $name = str_before($name, $method) . array_get($this->abilities, $method);
+            $name = str_before($name, $method).array_get($this->abilities, $method);
         }
 
         if (auth($guard)->user()->can($name)) {

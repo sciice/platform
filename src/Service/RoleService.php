@@ -2,10 +2,10 @@
 
 namespace Platform\Service;
 
-use Illuminate\Http\Request;
-use Platform\Contracts\PlatformService;
 use Platform\Model\Role;
+use Illuminate\Http\Request;
 use Platform\Resources\RoleResource;
+use Platform\Contracts\PlatformService;
 
 class RoleService implements PlatformService
 {
