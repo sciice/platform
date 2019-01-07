@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 return [
     // 后台地址
     'path' => 'admin',

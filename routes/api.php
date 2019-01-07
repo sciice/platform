@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 use Illuminate\Support\Facades\Route;
 
 // 初始化数据

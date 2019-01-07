@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Tests;
 
 class LoginControllerTest extends TestCase
@@ -60,7 +64,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 数据不匹配，登录失败
+     * 数据不匹配，登录失败.
      */
     public function test_login_it_failed()
     {
@@ -76,7 +80,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 登录失败次数超过设定
+     * 登录失败次数超过设定.
      */
     public function test_login_it_throttle()
     {
@@ -96,7 +100,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 未登录
+     * 未登录.
      */
     public function test_logout_it_unauthorized()
     {

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Foundation\Form;
 
 use Illuminate\Foundation\Http\FormRequest;

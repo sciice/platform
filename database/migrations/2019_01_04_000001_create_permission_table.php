@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -35,7 +39,7 @@ class CreatePermissionTable extends Migration
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type' ]);
+            $table->index([$columnNames['model_morph_key'], 'model_type']);
 
             $table->foreign('permission_id')
                 ->references('id')
@@ -51,7 +55,7 @@ class CreatePermissionTable extends Migration
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type' ]);
+            $table->index([$columnNames['model_morph_key'], 'model_type']);
 
             $table->foreign('role_id')
                 ->references('id')

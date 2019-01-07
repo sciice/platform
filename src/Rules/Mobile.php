@@ -1,12 +1,15 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 class Mobile implements Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *

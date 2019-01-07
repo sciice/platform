@@ -1,14 +1,18 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Providers;
 
+use Platform\Foundation\Sciice;
 use Platform\Middleware\Authorize;
-use Platform\Middleware\RefreshAccessToken;
-use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Platform\Middleware\RefreshAccessToken;
+use Illuminate\Auth\Middleware\Authenticate;
 use Platform\Console\PlatformInstallConsole;
-use Platform\Foundation\Sciice;
 
 class SciiceServiceProvider extends ServiceProvider
 {

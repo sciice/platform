@@ -1,10 +1,14 @@
 <?php
 
+/*
+ * style: fix StyleCI.
+ */
+
 namespace Platform\Providers;
 
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\ServiceProvider;
 use Platform\Rules\Mobile;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class ValidationServiceProvider extends ServiceProvider
 {
