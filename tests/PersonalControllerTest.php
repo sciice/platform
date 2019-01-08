@@ -13,7 +13,7 @@ class PersonalControllerTest extends TestCase
     public function test_personal_it_upload_avatar_success()
     {
         Storage::fake('public');
-        $file = UploadedFile::fake()->image('avatar.jpg');
+        $file = UploadedFile::fake()->image('avatar.png');
 
         $response = $this->postJson('/admin/personal/avatar', [
             'avatar' => $file,
