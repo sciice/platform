@@ -27,7 +27,4 @@
         <env name="APP_KEY" value="base64:yk+bUVuZa1p86Dqjk9OjVK2R1pm6XHxC6xEKFq8utH0="/>
         <env name="JWT_SECRET" value="ZLwqeaKcVh3iZgeAGgZFfavhb6GtLVl5"/>
     </php>
-    <logging>
-        <log type="coverage-clover" target="clover.xml"/>
-    </logging>
 </phpunit>
