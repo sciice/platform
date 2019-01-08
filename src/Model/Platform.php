@@ -29,6 +29,14 @@ class Platform extends User implements JWTSubject
     protected $hidden = ['password', 'accessToken'];
 
     /**
+     * @var array
+     */
+    protected $casts = [
+        'state' => 'boolean',
+        'mobile' => 'int',
+    ];
+
+    /**
      * @var string
      */
     protected $guard_name = 'admin';

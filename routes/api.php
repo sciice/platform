@@ -8,3 +8,7 @@ Route::get('source', 'DataSourceController');
 // 登录退出.
 Route::post('login', 'LoginController@login')->name('login');
 Route::post('logout', 'LoginCOntroller@logout')->name('logout');
+
+// 更新基本信息.
+Route::post('personal/account', 'PersonalController@account');
+Route::post('personal/avatar', 'PersonalController@avatar');

@@ -95,6 +95,7 @@ trait JWTAuthenticate
             return $this->accessToken = $this->guard()->attempt([
                 $value => $request->input($this->username()),
                 'password' => $request->input('password'),
+                'state' => true,
             ]);
         });
     }

@@ -76,6 +76,22 @@ class LoginControllerTest extends TestCase
     }
 
     /**
+     * 用户处于禁用状态
+     */
+    public function test_login_it_state_failed()
+    {
+        $this->generate_account_data(['state' => 0]);
+
+        $response = $this->postJson($this->login, [
+            'username' => 'admin',
+            'password' => 'admin',
+        ]);
+
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors('username');
+    }
+
+    /**
      * 登录失败次数超过设定.
      */
     public function test_login_it_throttle()
@@ -112,16 +128,9 @@ class LoginControllerTest extends TestCase
      */
     public function test_login_it_logout_success()
     {
-        $this->generate_account_data();
+        $header = $this->generate_new_account_access_token();
 
-        $data = $this->postJson($this->login, [
-            'username' => '13030303030',
-            'password' => 'admin',
-        ]);
-
-        $response = $this->postJson($this->logout, [], [
-            'Authorization' => $data->original['token_type'].' '.$data->original['access_token'],
-        ]);
+        $response = $this->postJson($this->logout, [], $header);
 
         $response->assertStatus(200);
     }

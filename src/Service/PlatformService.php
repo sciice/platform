@@ -15,7 +15,7 @@ class PlatformService implements Service
     const NOT_CAN_DATA = 1;
 
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|Platform
+     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
@@ -95,6 +95,32 @@ class PlatformService implements Service
         abort_if($id === self::NOT_CAN_DATA, 403, __('该账号不允许删除'));
 
         $this->model->findOrFail($id)->delete();
+
+        return $this;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return $this
+     */
+    public function updateUserAvatar(Request $request)
+    {
+        $this->model->findOrFail($request->user('admin')->id)
+            ->uploadImage($request->file('avatar'), 'avatar');
+
+        return $this;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return $this
+     */
+    public function updateUserAccountInfo(Request $request)
+    {
+        $this->model->findOrFail($request->user('admin')->id)
+            ->update($request->except('username'));
 
         return $this;
     }

@@ -26,6 +26,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
             \Platform\Providers\SciiceServiceProvider::class,
             \Spatie\Permission\PermissionServiceProvider::class,
             \Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+            \Intervention\Image\ImageServiceProvider::class,
             \QCod\ImageUp\ImageUpServiceProvider::class,
         ];
     }
@@ -78,16 +79,35 @@ class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Generate a test account data.
      *
+     * @param array $data
+     *
      * @return mixed
      */
-    protected function generate_account_data()
+    protected function generate_account_data(array $data = [])
     {
-        return Platform::create([
+        return Platform::create(array_merge([
             'name' => 'admin',
             'username' => 'admin',
             'password' => 'admin',
             'email' => 'admin@admin.com',
             'mobile' => '13030303030',
+        ], $data));
+    }
+
+    /**
+     * Generate a test access token.
+     *
+     * @return array
+     */
+    protected function generate_new_account_access_token()
+    {
+        $this->generate_account_data();
+
+        $data = $this->postJson('/admin/login', [
+            'username' => 'admin',
+            'password' => 'admin',
         ]);
+
+        return ['Authorization' => $data->original['token_type'].' '.$data->original['access_token']];
     }
 }
