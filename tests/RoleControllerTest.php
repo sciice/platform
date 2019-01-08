@@ -78,7 +78,7 @@ class RoleControllerTest extends TestCase
     }
 
     /**
-     * 成功删除角色数据
+     * 成功删除角色数据.
      */
     public function test_role_it_delete_success()
     {
