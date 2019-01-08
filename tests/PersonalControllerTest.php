@@ -26,6 +26,9 @@ class PersonalControllerTest extends TestCase
         Storage::disk('public')->assertExists('avatar/'.$file->hashName());
     }
 
+    /**
+     * 测试头像验证规则是否正常
+     */
     public function test_personal_it_upload_avatar_size_failed()
     {
         $file = UploadedFile::fake()->image('avatar.png')->size(3000);
