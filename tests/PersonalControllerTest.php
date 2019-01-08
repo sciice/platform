@@ -27,7 +27,7 @@ class PersonalControllerTest extends TestCase
     }
 
     /**
-     * 测试头像验证规则是否正常
+     * 测试头像验证规则是否正常.
      */
     public function test_personal_it_upload_avatar_size_failed()
     {
