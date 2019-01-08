@@ -27,6 +27,20 @@ class PersonalControllerTest extends TestCase
     }
 
     /**
+     * 测试头像验证规则是否正常.
+     */
+    public function test_personal_it_upload_avatar_size_failed()
+    {
+        $file = UploadedFile::fake()->image('avatar.png')->size(3000);
+
+        $response = $this->postJson('/admin/personal/avatar', [
+            'avatar' => $file,
+        ], $this->generate_new_account_access_token());
+
+        $response->assertStatus(422);
+    }
+
+    /**
      * 测试更新个人信息是否成功
      */
     public function test_personal_it_update_user_info_success()

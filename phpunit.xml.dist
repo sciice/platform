@@ -27,4 +27,8 @@
         <env name="APP_KEY" value="base64:yk+bUVuZa1p86Dqjk9OjVK2R1pm6XHxC6xEKFq8utH0="/>
         <env name="JWT_SECRET" value="ZLwqeaKcVh3iZgeAGgZFfavhb6GtLVl5"/>
     </php>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+        <log type="coverage-clover" target="coverage.xml" showUncoveredFiles="true"/>
+    </logging>
 </phpunit>
