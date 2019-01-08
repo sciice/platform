@@ -20,8 +20,8 @@ class PlatformResource extends JsonResource
                 'roleName' => optional($this->roles->first())->title,
             ]),
             'state' => $this->state,
-            'created_at' => (string)$this->created_at,
-            'updated_at' => (string)$this->updated_at,
+            'created_at' => (string) $this->created_at,
+            'updated_at' => (string) $this->updated_at,
         ];
     }
 }

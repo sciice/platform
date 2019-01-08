@@ -50,7 +50,7 @@ class PersonalControllerTest extends TestCase
     }
 
     /**
-     * 未登录
+     * 未登录.
      */
     public function test_personal_it_unauthorized()
     {
