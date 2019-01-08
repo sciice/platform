@@ -31,9 +31,7 @@ class PersonalController extends Controller
      */
     public function account(PersonalFormRequest $request)
     {
-        return tap(
-            $this->service->updateUserAccountInfo($request)->resource($request->user()->id)
-        )->additional(['data' => ['message' => __('个人信息更新成功')]]);
+        return $this->service->updateUserAccountInfo($request)->resource($request->user()->id, true);
     }
 
     /**
@@ -43,10 +41,6 @@ class PersonalController extends Controller
      */
     public function avatar(Request $request)
     {
-        return tap(
-            $this->service
-                ->updateUserAvatar($request)
-                ->resource($request->user()->id)
-        )->additional(['data' => ['message' => __('头像上传成功')]]);
+        return $this->service->updateUserAvatar($request)->resource($request->user()->id, true);
     }
 }

@@ -6,9 +6,12 @@ use Platform\Model\Role;
 use Illuminate\Http\Request;
 use Platform\Resources\RoleResource;
 use Platform\Contracts\PlatformService;
+use Platform\Support\PlatformServiceTrait;
 
 class RoleService implements PlatformService
 {
+    use PlatformServiceTrait;
+
     /**
      * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
@@ -30,32 +33,30 @@ class RoleService implements PlatformService
     }
 
     /**
-     * @return mixed
-     */
-    public function response()
-    {
-        //
-    }
-
-    /**
+     * @param bool $message
+     *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection|mixed
      */
-    public function resources()
+    public function resources($message = true)
     {
-        return RoleResource::collection($this->model->grouping()->get());
+        return RoleResource::collection($this->model->grouping()->get())
+            ->additional($this->message($message));
     }
 
     /**
      * @param int $id
      *
+     * @param bool $message
+     *
      * @return mixed
      */
-    public function resource(int $id)
+    public function resource(int $id, $message = false)
     {
         $data = $this->model->findOrFail($id);
         $authorize = $data->permissions()->pluck('id');
 
-        return (new RoleResource($data))->additional(['authorize' => $authorize]);
+        return (new RoleResource($data))
+            ->additional(array_merge(['authorize' => $authorize], $this->message($message)));
     }
 
     /**

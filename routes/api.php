@@ -12,3 +12,9 @@ Route::post('logout', 'LoginCOntroller@logout')->name('logout');
 // 更新基本信息.
 Route::post('personal/account', 'PersonalController@account');
 Route::post('personal/avatar', 'PersonalController@avatar');
+
+Route::group(['middleware' => ['login:admin', 'authorize']], function () {
+    Route::apiResources([
+        'role' => 'RoleController',
+    ]);
+});

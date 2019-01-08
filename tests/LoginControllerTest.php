@@ -15,7 +15,7 @@ class LoginControllerTest extends TestCase
     private $logout = '/admin/logout';
 
     /**
-     * 多字段 username 登录成功
+     * 多字段 username 登录成功.
      */
     public function test_login_it_attempt_username_success()
     {
@@ -30,7 +30,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 多字段 email 登录成功
+     * 多字段 email 登录成功.
      */
     public function test_login_it_attempt_email_success()
     {
@@ -45,7 +45,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 多字段 mobile 登录成功
+     * 多字段 mobile 登录成功.
      */
     public function test_login_it_attempt_mobile_success()
     {
@@ -76,7 +76,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 用户处于禁用状态
+     * 用户处于禁用状态.
      */
     public function test_login_it_state_failed()
     {
@@ -124,7 +124,7 @@ class LoginControllerTest extends TestCase
     }
 
     /**
-     * 成功退出系统
+     * 成功退出系统.
      */
     public function test_login_it_logout_success()
     {
