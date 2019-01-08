@@ -5,10 +5,13 @@ namespace Platform\Service;
 use Illuminate\Http\Request;
 use Platform\Model\Platform;
 use Platform\Resources\PlatformResource;
+use Platform\Support\PlatformServiceTrait;
 use Platform\Contracts\PlatformService as Service;
 
 class PlatformService implements Service
 {
+    use PlatformServiceTrait;
+
     /**
      * @var int
      */
@@ -30,29 +33,27 @@ class PlatformService implements Service
     }
 
     /**
+     * @param bool $message
+     *
      * @return mixed
      */
-    public function response()
+    public function resources($message = true)
     {
-        return response()->json(['message' => __('操作成功')]);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function resources()
-    {
-        return PlatformResource::collection($this->model->paginate());
+        return PlatformResource::collection($this->model->paginate())
+            ->additional($this->message($message));
     }
 
     /**
      * @param int $id
      *
+     * @param bool $message
+     *
      * @return mixed
      */
-    public function resource(int $id)
+    public function resource(int $id, $message = false)
     {
-        return new PlatformResource($this->model->findOrFail($id));
+        return (new PlatformResource($this->model->findOrFail($id)))
+            ->additional($this->message($message));
     }
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class PersonalControllerTest extends TestCase
 {
     /**
-     * 测试头像上传是否成功
+     * 测试头像上传是否成功.
      */
     public function test_personal_it_upload_avatar_success()
     {
@@ -41,7 +41,7 @@ class PersonalControllerTest extends TestCase
     }
 
     /**
-     * 测试更新个人信息是否成功
+     * 测试更新个人信息是否成功.
      */
     public function test_personal_it_update_user_info_success()
     {

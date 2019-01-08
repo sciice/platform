@@ -3,24 +3,24 @@
 namespace Platform\Controller;
 
 use Illuminate\Http\Request;
-use Platform\Service\PlatformService;
+use Platform\Service\RoleService;
 use Platform\Support\ControllerServiceTrait;
 
-class PlatformController extends Controller
+class RoleController extends Controller
 {
     use ControllerServiceTrait;
 
     /**
-     * @var PlatformService
+     * @var RoleService
      */
     private $service;
 
     /**
-     * PlatformController constructor.
+     * RoleController constructor.
      *
-     * @param PlatformService $service
+     * @param RoleService $service
      */
-    public function __construct(PlatformService $service)
+    public function __construct(RoleService $service)
     {
         $this->service = $service;
     }

@@ -7,21 +7,27 @@ use Illuminate\Http\Request;
 interface PlatformService
 {
     /**
-     * @return mixed
+     * @param bool $message
+     *
+     * @return array
      */
-    public function response();
+    public function message($message);
 
     /**
+     * @param bool $message
+     *
      * @return mixed
      */
-    public function resources();
+    public function resources($message = true);
 
     /**
      * @param int $id
      *
+     * @param bool $message
+     *
      * @return mixed
      */
-    public function resource(int $id);
+    public function resource(int $id, $message = false);
 
     /**
      * @param Request $request
