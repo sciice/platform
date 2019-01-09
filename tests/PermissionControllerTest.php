@@ -35,6 +35,7 @@ class PermissionControllerTest extends TestCase
             'name'     => 'test',
             'title'    => 'test',
             'grouping' => 'test',
+            'parent'   => 0,
         ], $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonFragment(['id' => 1, 'name' => 'test', 'message' => '操作成功']);
@@ -48,8 +49,10 @@ class PermissionControllerTest extends TestCase
         $this->generate_test_permission_data();
 
         $response = $this->patchJson($this->url.'/1', [
-            'name'  => 'permission',
-            'title' => 'permission',
+            'name'     => 'permission',
+            'title'    => 'permission',
+            'grouping' => 'test',
+            'parent'   => 0,
         ], $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonFragment(['id' => 1, 'name' => 'permission', 'message' => '操作成功']);
