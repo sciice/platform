@@ -111,9 +111,9 @@ class RoleControllerTest extends TestCase
         $authorize->assertOk();
 
         $role = $this->postJson($this->url, [
-            'name'  => 'store-test',
-            'title' => 'store-test',
-            'authorize' => [1]
+            'name'      => 'store-test',
+            'title'     => 'store-test',
+            'authorize' => [1],
         ], $this->get_login_user());
         $this->assertEquals(2, $role->original[1]['id']);
         $role->assertOk();
@@ -129,12 +129,12 @@ class RoleControllerTest extends TestCase
 
         $user = $this->postJson('/admin/login', [
             'username' => 'test',
-            'password' => '12345'
+            'password' => '12345',
         ]);
         $user->assertOk();
 
         $header = ['Authorization' => $user->original['token_type'].' '.$user->original['access_token']];
-        $isOk = $this->getJson($this->url, $header);
+        $isOk   = $this->getJson($this->url, $header);
         $isOk->assertOk();
 
         $isError = $this->getJson('/admin/account', $header);
