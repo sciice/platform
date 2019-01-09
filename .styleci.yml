@@ -52,7 +52,6 @@ enabled:
   - phpdoc_trim
   - phpdoc_types
   - phpdoc_var_without_name
-  - psr4
   - self_accessor
   - short_scalar_cast
   - simplified_null_return
