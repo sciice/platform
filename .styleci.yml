@@ -3,8 +3,8 @@ risky: true
 
 enabled:
   - binary_operator_spaces
-    - align_equals
-    - align_double_arrow
+  - align_equals
+  - align_double_arrow
   - blank_line_after_opening_tag
   - blank_line_before_return
   - cast_spaces
