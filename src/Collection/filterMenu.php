@@ -12,7 +12,7 @@ Collection::macro('filterMenu', function ($authorize, $field = 'authorize', $chi
             }
 
             return $item;
-        })->toArray();
+        })->values()->toArray();
 
         return $value;
     })->filter(function ($item) use ($children) {
