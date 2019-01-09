@@ -60,9 +60,9 @@ trait JWTAuthenticate
     {
         $guard = $this->guard();
 
-        $this->guard()->logout();
-
         event(new Logout($guard, $guard->user()));
+
+        $this->guard()->logout();
 
         return $this->loggedOut($request);
     }
