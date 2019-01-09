@@ -43,18 +43,18 @@ class PlatformDatabaseSeeder extends Seeder
             foreach ($this->rule as $rule => $item) {
                 if ($rule === 'index') {
                     $this->parent = Permission::create([
-                        'name' => "$this->name.$key.$rule",
-                        'title' => $value.$item,
-                        'grouping' => $this->grouping,
+                        'name'       => "$this->name.$key.$rule",
+                        'title'      => $value.$item,
+                        'grouping'   => $this->grouping,
                         'guard_name' => $this->name,
                     ]);
                 } else {
                     Permission::create([
-                        'name' => "$this->name.$key.$rule",
-                        'title' => $item,
-                        'grouping' => $this->grouping,
+                        'name'       => "$this->name.$key.$rule",
+                        'title'      => $item,
+                        'grouping'   => $this->grouping,
                         'guard_name' => $this->name,
-                        'parent' => $this->parent->id,
+                        'parent'     => $this->parent->id,
                     ]);
                 }
             }

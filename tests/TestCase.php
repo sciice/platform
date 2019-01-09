@@ -62,9 +62,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
         $config->set('jwt.secret', 'ZLwqeaKcVh3iZgeAGgZFfavhb6GtLVl5');
         $config->set('database.default', 'testing');
         $config->set('database.connections.testing', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
     }
 
@@ -86,11 +86,11 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function generate_account_data(array $data = [])
     {
         return Platform::create(array_merge([
-            'name' => 'admin',
+            'name'     => 'admin',
             'username' => 'admin',
             'password' => 'admin',
-            'email' => 'admin@admin.com',
-            'mobile' => '13030303030',
+            'email'    => 'admin@admin.com',
+            'mobile'   => '13030303030',
         ], $data));
     }
 

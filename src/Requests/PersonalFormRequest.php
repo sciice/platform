@@ -16,10 +16,10 @@ class PersonalFormRequest extends Request
         $id = auth('admin')->id();
 
         return [
-            'name' => 'required|min:2',
+            'name'     => 'required|min:2',
             'username' => 'required',
-            'email' => ['required', 'email', Rule::unique('admin')->ignore($id)],
-            'mobile' => ['required', 'mobile', Rule::unique('admin')->ignore($id)],
+            'email'    => ['required', 'email', Rule::unique('admin')->ignore($id)],
+            'mobile'   => ['required', 'mobile', Rule::unique('admin')->ignore($id)],
         ];
     }
 

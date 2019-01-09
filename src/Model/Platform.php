@@ -32,7 +32,7 @@ class Platform extends User implements JWTSubject
      * @var array
      */
     protected $casts = [
-        'state' => 'boolean',
+        'state'  => 'boolean',
         'mobile' => 'int',
     ];
 
@@ -71,10 +71,10 @@ class Platform extends User implements JWTSubject
      */
     protected static $imageFields = [
         'avatar' => [
-            'width' => 200,
+            'width'  => 200,
             'height' => 200,
-            'path' => 'avatar',
-            'rules' => 'image|mimes:jpeg,jpg,png|max:2000',
+            'path'   => 'avatar',
+            'rules'  => 'image|mimes:jpeg,jpg,png|max:2000',
         ],
     ];
 

@@ -46,10 +46,10 @@ class PersonalControllerTest extends TestCase
     public function test_personal_it_update_user_info_success()
     {
         $response = $this->postJson('/admin/personal/account', [
-            'name' => 'test',
+            'name'     => 'test',
             'username' => 'test',
-            'email' => 'test@i.com',
-            'mobile' => '13000000000',
+            'email'    => 'test@i.com',
+            'mobile'   => '13000000000',
         ], $this->generate_new_account_access_token());
 
         $response->assertOk();
@@ -71,10 +71,10 @@ class PersonalControllerTest extends TestCase
         $this->generate_account_data();
 
         $response = $this->postJson('/admin/personal/account', [
-            'name' => 'test',
+            'name'     => 'test',
             'username' => 'test',
-            'email' => 'test@i.com',
-            'mobile' => '13000000000',
+            'email'    => 'test@i.com',
+            'mobile'   => '13000000000',
         ]);
 
         $response->assertStatus(401);

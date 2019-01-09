@@ -2,8 +2,8 @@
 
 namespace Platform\Controller;
 
-use Illuminate\Http\Request;
 use Platform\Service\RoleService;
+use Platform\Requests\RoleFormRequest;
 use Platform\Support\ControllerServiceTrait;
 
 class RoleController extends Controller
@@ -26,22 +26,22 @@ class RoleController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param RoleFormRequest $request
      *
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(RoleFormRequest $request)
     {
         return $this->service()->storeAs($request)->resources();
     }
 
     /**
-     * @param Request $request
+     * @param RoleFormRequest $request
      * @param int $id
      *
      * @return mixed
      */
-    public function update(Request $request, int $id)
+    public function update(RoleFormRequest $request, int $id)
     {
         return $this->service()->updateAs($request, $id)->resources();
     }

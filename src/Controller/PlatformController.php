@@ -2,8 +2,8 @@
 
 namespace Platform\Controller;
 
-use Illuminate\Http\Request;
 use Platform\Service\PlatformService;
+use Platform\Requests\PlatformFormRequest;
 use Platform\Support\ControllerServiceTrait;
 
 class PlatformController extends Controller
@@ -26,22 +26,22 @@ class PlatformController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param PlatformFormRequest $request
      *
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(PlatformFormRequest $request)
     {
         return $this->service()->storeAs($request)->resources();
     }
 
     /**
-     * @param Request $request
+     * @param PlatformFormRequest $request
      * @param int $id
      *
      * @return mixed
      */
-    public function update(Request $request, int $id)
+    public function update(PlatformFormRequest $request, int $id)
     {
         return $this->service()->updateAs($request, $id)->resources();
     }

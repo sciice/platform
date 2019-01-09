@@ -29,6 +29,6 @@ class UpdateTokenValue
     public function __construct($accessToken, $user)
     {
         $this->accessToken = $accessToken;
-        $this->user = $user;
+        $this->user        = $user;
     }
 }

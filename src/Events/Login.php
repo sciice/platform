@@ -34,8 +34,8 @@ class Login
      */
     public function __construct($guard, $user, $accessToken)
     {
-        $this->guard = $guard;
-        $this->user = $user;
+        $this->guard       = $guard;
+        $this->user        = $user;
         $this->accessToken = $accessToken;
     }
 }

@@ -1,1 +1,75 @@
-preset: laravel
+preset: PSR2
+risky: true
+
+enabled:
+  - binary_operator_spaces
+    - align_equals
+    - align_double_arrow
+  - blank_line_after_opening_tag
+  - blank_line_before_return
+  - cast_spaces
+  - declare_equal_normalize
+  - function_typehint_space
+  - hash_to_slash_comment
+  - heredoc_to_nowdoc
+  - include
+  - lowercase_cast
+  - magic_constant_casing
+  - method_separation
+  - native_function_casing
+  - no_alias_functions
+  - no_blank_lines_after_class_opening
+  - no_blank_lines_after_phpdoc
+  - no_empty_phpdoc
+  - no_empty_statement
+  - no_extra_consecutive_blank_lines
+  - no_leading_import_slash
+  - no_leading_namespace_whitespace
+  - no_multiline_whitespace_around_double_arrow
+  - no_multiline_whitespace_before_semicolons
+  - no_short_bool_cast
+  - no_singleline_whitespace_before_semicolons
+  - no_trailing_comma_in_list_call
+  - no_trailing_comma_in_singleline_array
+  - no_unneeded_control_parentheses
+  - no_unreachable_default_argument_value
+  - no_unused_imports
+  - no_useless_return
+  - no_whitespace_before_comma_in_array
+  - no_whitespace_in_blank_line
+  - normalize_index_brace
+  - not_operator_with_successor_space
+  - object_operator_without_whitespace
+  - phpdoc_indent
+  - phpdoc_inline_tag
+  - phpdoc_no_access
+  - phpdoc_no_package
+  - phpdoc_no_useless_inheritdoc
+  - phpdoc_scalar
+  - phpdoc_single_line_var_spacing
+  - phpdoc_summary
+  - phpdoc_to_comment
+  - phpdoc_trim
+  - phpdoc_types
+  - phpdoc_var_without_name
+  - psr4
+  - self_accessor
+  - short_scalar_cast
+  - simplified_null_return
+  - single_blank_line_before_namespace
+  - single_quote
+  - space_after_semicolon
+  - standardize_not_equals
+  - ternary_operator_spaces
+  - trailing_comma_in_multiline_array
+  - trim_array_spaces
+  - unary_operator_spaces
+  - whitespace_after_comma_in_array
+
+finder:
+  exclude:
+    - "vendor"
+  name:
+    - "*.php"
+  not-name:
+    - "*Stub.php"

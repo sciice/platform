@@ -15,7 +15,8 @@ Route::post('personal/avatar', 'PersonalController@avatar');
 
 Route::group(['middleware' => ['login:admin', 'authorize']], function () {
     Route::apiResources([
-        'role' => 'RoleController',
-        'auth' => 'PermissionController',
+        'role'    => 'RoleController',
+        'auth'    => 'PermissionController',
+        'account' => 'PlatformController',
     ]);
 });

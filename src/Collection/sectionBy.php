@@ -13,7 +13,7 @@ Collection::macro('sectionBy', function ($key, bool $preserveKeys = false, $sect
         if (! $results->last() || $results->last()->get($sectionKey) !== $sectionName) {
             $results->push(new Collection([
                 $sectionKey => $sectionName,
-                $itemsKey => new Collection(),
+                $itemsKey   => new Collection(),
             ]));
         }
         $results->last()->get($itemsKey)->offsetSet($preserveKeys ? $key : null, $value);
