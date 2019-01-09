@@ -110,10 +110,19 @@ class RoleControllerTest extends TestCase
         $this->assertEquals(1, $authorize->original[0]['id']);
         $authorize->assertOk();
 
+        $authorize = $this->postJson('/admin/auth', [
+            'name'     => 'admin.role.update',
+            'title'    => 'role update',
+            'grouping' => 'admin',
+            'parent'   => 0,
+        ], $this->get_login_user());
+        $this->assertEquals(2, $authorize->original[1]['id']);
+        $authorize->assertOk();
+
         $role = $this->postJson($this->url, [
             'name'      => 'store-test',
             'title'     => 'store-test',
-            'authorize' => [1],
+            'authorize' => [1, 2],
         ], $this->get_login_user());
         $this->assertEquals(2, $role->original[1]['id']);
         $role->assertOk();
@@ -133,12 +142,15 @@ class RoleControllerTest extends TestCase
         ]);
         $user->assertOk();
 
-        $header = ['Authorization' => $user->original['token_type'].' '.$user->original['access_token']];
-        $isOk   = $this->getJson($this->url, $header);
-        $isOk->assertOk();
+        $header     = ['Authorization' => $user->original['token_type'].' '.$user->original['access_token']];
+        $canIndex   = $this->getJson($this->url, $header);
+        $canIndex->assertOk();
 
-        $isError = $this->getJson('/admin/account', $header);
-        $isError->assertStatus(403);
+        $canShow = $this->getJson($this->url.'/2', $header);
+        $canShow->assertOk();
+
+        $notCan = $this->getJson('/admin/account', $header);
+        $notCan->assertStatus(403);
     }
 
     /**
