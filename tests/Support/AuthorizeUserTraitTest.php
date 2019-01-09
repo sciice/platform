@@ -2,8 +2,8 @@
 
 namespace Platform\Tests\Support;
 
-use Platform\Model\Permission;
 use Platform\Model\Role;
+use Platform\Model\Permission;
 
 trait AuthorizeUserTraitTest
 {
