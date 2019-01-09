@@ -2,6 +2,7 @@
 
 namespace Platform\Tests\Support;
 
+use Platform\Model\Permission;
 use Platform\Model\Role;
 
 trait AuthorizeUserTraitTest
@@ -14,12 +15,7 @@ trait AuthorizeUserTraitTest
         $user = $this->generate_account_data();
         $user->assignRole($this->generate_test_role_data());
 
-        $data = $this->postJson('/admin/login', [
-            'username' => 'admin',
-            'password' => 'admin',
-        ]);
-
-        return ['Authorization' => $data->original['token_type'].' '.$data->original['access_token']];
+        return $this->get_login_user();
     }
 
     /**
@@ -46,6 +42,21 @@ trait AuthorizeUserTraitTest
             'name' => 'test',
             'title' => 'test',
             'guard_name' => 'admin',
+        ], $data));
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return \Illuminate\Database\Eloquent\Model|Permission
+     */
+    protected function generate_test_permission_data(array $data = [])
+    {
+        return Permission::create(array_merge([
+            'name' => 'test',
+            'title' => 'test',
+            'guard_name' => 'admin',
+            'grouping' => 'admin',
         ], $data));
     }
 }
