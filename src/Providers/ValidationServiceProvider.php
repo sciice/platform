@@ -47,7 +47,7 @@ class ValidationServiceProvider extends ServiceProvider
     {
         return [
             [
-                'name' => 'mobile',
+                'name'  => 'mobile',
                 'class' => new Mobile(),
             ],
         ];

@@ -52,7 +52,7 @@ class RoleService implements PlatformService
      */
     public function resource(int $id, $message = false)
     {
-        $data = $this->model->findOrFail($id);
+        $data      = $this->model->findOrFail($id);
         $authorize = $data->permissions()->pluck('id');
 
         return (new RoleResource($data))

@@ -18,7 +18,7 @@ class Authorize
         }
 
         $method = str_after(Route::currentRouteAction(), '@');
-        $name = Route::currentRouteName();
+        $name   = Route::currentRouteName();
 
         if (array_get($this->abilities, $method)) {
             $name = str_before($name, $method).array_get($this->abilities, $method);

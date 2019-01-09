@@ -14,11 +14,10 @@ class PlatformFormRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'username' => 'required|min:4|string|unique:sciice',
-            'email' => 'required|email|unique:sciice',
-            'mobile' => 'required|mobile|unique:sciice',
-            'role' => 'required',
+            'name'     => 'required|string',
+            'username' => 'required|min:4|string|unique:admin',
+            'email'    => 'required|email|unique:admin',
+            'role'     => 'required',
             'password' => 'required|min:5',
         ];
     }
@@ -28,13 +27,27 @@ class PlatformFormRequest extends Request
      */
     public function update()
     {
+        $id = $this->route('account');
+
         return [
-            'name' => 'required|string',
-            'username' => ['required', 'min:4', 'string', Rule::unique('admin')->ignore($this->route('user'))],
-            'email' => ['required', 'email', Rule::unique('admin')->ignore($this->route('user'))],
-            'mobile' => ['required', 'mobile', Rule::unique('admin')->ignore($this->route('user'))],
-            'role' => 'required',
+            'name'     => 'required|string',
+            'username' => ['required', 'min:4', 'string', Rule::unique('admin')->ignore($id)],
+            'email'    => ['required', 'email', Rule::unique('admin')->ignore($id)],
+            'role'     => 'required',
         ];
+    }
+
+    /**
+     * @param $validator
+     *
+     * @return ValidatorSometime
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function withValidator($validator)
+    {
+        return ValidatorSometime::make($validator)
+            ->rule('mobile', ['required', 'mobile', Rule::unique('admin')])
+            ->validate();
     }
 
     /**
@@ -45,7 +58,10 @@ class PlatformFormRequest extends Request
      */
     public function updateWithValidator($validator)
     {
-        return ValidatorSometime::make($validator)->rule('password', 'required|min:5')->validate();
+        return ValidatorSometime::make($validator)
+            ->rule('password', 'required|min:5')
+            ->rule('mobile', ['required', 'mobile', Rule::unique('admin')->ignore($this->route('account'))])
+            ->validate();
     }
 
     /**

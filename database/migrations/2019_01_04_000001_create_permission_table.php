@@ -13,7 +13,7 @@ class CreatePermissionTable extends Migration
      */
     public function up()
     {
-        $tableNames = config('permission.table_names');
+        $tableNames  = config('permission.table_names');
         $columnNames = config('permission.column_names');
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
@@ -48,8 +48,10 @@ class CreatePermissionTable extends Migration
                 ->on($tableNames['permissions'])
                 ->onDelete('cascade');
 
-            $table->primary(['permission_id', $columnNames['model_morph_key'], 'model_type'],
-                'model_has_permissions_permission_model_type_primary');
+            $table->primary(
+                ['permission_id', $columnNames['model_morph_key'], 'model_type'],
+                'model_has_permissions_permission_model_type_primary'
+            );
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {
@@ -64,8 +66,10 @@ class CreatePermissionTable extends Migration
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
 
-            $table->primary(['role_id', $columnNames['model_morph_key'], 'model_type'],
-                'model_has_roles_role_model_type_primary');
+            $table->primary(
+                ['role_id', $columnNames['model_morph_key'], 'model_type'],
+                'model_has_roles_role_model_type_primary'
+            );
         });
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {

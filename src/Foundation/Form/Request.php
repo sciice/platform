@@ -15,8 +15,10 @@ class Request extends FormRequest
         $make = $this->isMethod('POST') ? 'rules' : 'update';
 
         return $factory->make(
-            $this->validationData(), $this->container->call([$this, $make]),
-            $this->messages(), $this->attributes()
+            $this->validationData(),
+            $this->container->call([$this, $make]),
+            $this->messages(),
+            $this->attributes()
         );
     }
 

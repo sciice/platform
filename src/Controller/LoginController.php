@@ -25,10 +25,10 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         return response()->json([
-            'message' => __('登录成功'),
+            'message'      => __('登录成功'),
             'access_token' => $this->accessToken,
-            'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60,
+            'token_type'   => 'bearer',
+            'expires_in'   => $this->guard()->factory()->getTTL() * 60,
         ]);
     }
 

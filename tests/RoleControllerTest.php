@@ -21,7 +21,7 @@ class RoleControllerTest extends TestCase
         $response = $this->getJson($this->url, $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonMissing(['message'])->assertJsonFragment([
-            'name' => 'test',
+            'name'  => 'test',
             'title' => 'test',
         ]);
     }
@@ -32,15 +32,15 @@ class RoleControllerTest extends TestCase
     public function test_role_it_store_success()
     {
         $response = $this->postJson($this->url, [
-            'name' => 'store-test',
+            'name'  => 'store-test',
             'title' => 'store-test',
         ], $this->generate_super_role_user());
 
         $this->assertEquals(2, count($response->original));
         $response->assertOk()->assertJsonFragment([
             'message' => '操作成功',
-            'id' => 1,
-            'name' => 'store-test',
+            'id'      => 1,
+            'name'    => 'store-test',
         ]);
     }
 
@@ -50,15 +50,15 @@ class RoleControllerTest extends TestCase
     public function test_role_it_update_success()
     {
         $response = $this->patchJson($this->url.'/1', [
-            'name' => 'super',
+            'name'  => 'super',
             'title' => 'super',
         ], $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonFragment([
             'message' => '操作成功',
-            'id' => 1,
-            'name' => 'super',
-            'title' => 'super',
+            'id'      => 1,
+            'name'    => 'super',
+            'title'   => 'super',
         ]);
     }
 
@@ -70,9 +70,9 @@ class RoleControllerTest extends TestCase
         $response = $this->getJson($this->url.'/1', $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonMissing(['message'])->assertJsonFragment([
-            'id' => 1,
-            'name' => 'test',
-            'title' => 'test',
+            'id'        => 1,
+            'name'      => 'test',
+            'title'     => 'test',
             'authorize' => [],
         ]);
     }
@@ -83,7 +83,7 @@ class RoleControllerTest extends TestCase
     public function test_role_it_delete_success()
     {
         $result = $this->postJson($this->url, [
-            'name' => 'store-test',
+            'name'  => 'store-test',
             'title' => 'store-test',
         ], $this->generate_super_role_user());
 

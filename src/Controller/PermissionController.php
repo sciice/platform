@@ -2,9 +2,9 @@
 
 namespace Platform\Controller;
 
-use Illuminate\Http\Request;
 use Platform\Service\PermissionService;
 use Platform\Support\ControllerServiceTrait;
+use Platform\Requests\PermissionFormRequest;
 
 class PermissionController extends Controller
 {
@@ -26,22 +26,22 @@ class PermissionController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param PermissionFormRequest $request
      *
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(PermissionFormRequest $request)
     {
         return $this->service()->storeAs($request)->resources();
     }
 
     /**
-     * @param Request $request
+     * @param PermissionFormRequest $request
      * @param int $id
      *
      * @return mixed
      */
-    public function update(Request $request, int $id)
+    public function update(PermissionFormRequest $request, int $id)
     {
         return $this->service()->updateAs($request, $id)->resources();
     }

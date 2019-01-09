@@ -96,9 +96,9 @@ class SciiceServiceProvider extends ServiceProvider
     private function configurationRouter()
     {
         return [
-            'namespace' => 'Platform\Controller',
-            'as' => 'admin.',
-            'prefix' => config('admin.path'),
+            'namespace'  => 'Platform\Controller',
+            'as'         => 'admin.',
+            'prefix'     => config('admin.path'),
             'middleware' => config('admin.middleware'),
         ];
     }

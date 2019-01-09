@@ -78,7 +78,7 @@ trait JWTAuthenticate
     {
         $request->validate([
             $this->username() => 'required|string',
-            'password' => 'required|string',
+            'password'        => 'required|string',
         ]);
     }
 
@@ -93,9 +93,9 @@ trait JWTAuthenticate
     {
         return collect(config('admin.attempt'))->contains(function ($value) use ($request) {
             return $this->accessToken = $this->guard()->attempt([
-                $value => $request->input($this->username()),
+                $value     => $request->input($this->username()),
                 'password' => $request->input('password'),
-                'state' => true,
+                'state'    => true,
             ]);
         });
     }

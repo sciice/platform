@@ -32,9 +32,10 @@ class PermissionControllerTest extends TestCase
     public function test_permission_it_store_success()
     {
         $response = $this->postJson($this->url, [
-            'name' => 'test',
-            'title' => 'test',
+            'name'     => 'test',
+            'title'    => 'test',
             'grouping' => 'test',
+            'parent'   => 0,
         ], $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonFragment(['id' => 1, 'name' => 'test', 'message' => '操作成功']);
@@ -48,8 +49,10 @@ class PermissionControllerTest extends TestCase
         $this->generate_test_permission_data();
 
         $response = $this->patchJson($this->url.'/1', [
-            'name' => 'permission',
-            'title' => 'permission',
+            'name'     => 'permission',
+            'title'    => 'permission',
+            'grouping' => 'test',
+            'parent'   => 0,
         ], $this->generate_super_role_user());
 
         $response->assertOk()->assertJsonFragment(['id' => 1, 'name' => 'permission', 'message' => '操作成功']);
@@ -88,10 +91,10 @@ class PermissionControllerTest extends TestCase
         $this->generate_test_permission_data();
 
         $result = $this->postJson($this->url, [
-            'name' => 'permission',
-            'title' => 'permission',
+            'name'     => 'permission',
+            'title'    => 'permission',
             'grouping' => 'admin',
-            'parent' => 1,
+            'parent'   => 1,
         ], $this->generate_super_role_user());
 
         $this->assertEquals(2, $result->original->count());

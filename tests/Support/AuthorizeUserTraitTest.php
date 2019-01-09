@@ -39,8 +39,8 @@ trait AuthorizeUserTraitTest
     protected function generate_test_role_data(array $data = [])
     {
         return Role::create(array_merge([
-            'name' => 'test',
-            'title' => 'test',
+            'name'       => 'test',
+            'title'      => 'test',
             'guard_name' => 'admin',
         ], $data));
     }
@@ -53,10 +53,10 @@ trait AuthorizeUserTraitTest
     protected function generate_test_permission_data(array $data = [])
     {
         return Permission::create(array_merge([
-            'name' => 'test',
-            'title' => 'test',
+            'name'       => 'test',
+            'title'      => 'test',
             'guard_name' => 'admin',
-            'grouping' => 'admin',
+            'grouping'   => 'admin',
         ], $data));
     }
 }
